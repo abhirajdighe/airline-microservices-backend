@@ -1,3 +1,6 @@
+#### This repository contains the backend for an Airline Management System built using Node.js, Sequelize, and MySQL. The system uses a microservices architecture to handle various operations such as flight booking, customer management, and flight scheduling.
+
+
 ## Installation
 
 ### Prerequisites
@@ -14,39 +17,17 @@ Ensure that you have the following installed on your local machine:
 ![MySQL](https://img.shields.io/badge/MySQL-8.x-blue.svg)
 ![Sequelize](https://img.shields.io/badge/Sequelize-6.x-yellow.svg)
 
-### Steps to Install
 
-1. **Clone the repository:**
+![Node.js](https://nodejs.org/static/images/logo.svg) 
+<img src="https://www.mysql.com/common/logos/logo-mysql-170x115.png" alt="MySQL" width="100"/>    
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript" width="100"/>
+<img src="https://sequelize.org/img/logo.svg" alt="Sequelize" width="100"/>
 
-    ```bash
-    git clone https://github.com/abhirajdighe/airline-microservices-backend.git
-    ```
-
-2. **Navigate to the root directory and install dependencies for each microservice:**
-
-    For the **Booking Service**:
-    ```bash
-    cd booking-service
-    npm install
-    ```
-
-    For the **Customer Service**:
-    ```bash
-    cd ../customer-service
-    npm install
-    ```
-
-    For the **Flight Service**:
-    ```bash
-    cd ../flight-service
-    npm install
-    ```
-
-3. **Set up the MySQL database:**
+ **Set up the MySQL database:**
    - Ensure that MySQL is installed and running on your machine.
    - Create a database named `airline_db` (or any other name).
    - Update the `.env` file in each service with your MySQL database connection details.
 
 
-4. **Test the APIs:**
+ **Test the APIs:**
    - Once all services are up and running, you can test the API endpoints using tools like Postman or Curl.
