@@ -16,14 +16,22 @@ const createChannel = async()=>{
 const subsribeMessage =async (channel,service, binding_key)=>{
     
     try{
-        const applicationQueue = await channel.assertQueue('QUEUE_NAME');
+        const applicationQueue = await channel.assertQueue('REMINDER_QUEUE');
 
-        channel.bindQueue(applicationQueue.queue);
+        channel.bindQueue(applicationQueue.queue,EXCHANGE_NAME,binding_key);
 
         channel.consume(applicationQueue.queue,msg=>{
             console.log('received data')
             console.log(msg.content.toString());
-            console.log(msg)
+            const payload = JSON.parse(msg.content.toString());
+            // console.log(payload);
+            if(payload.service == "DEMO_SERVICE"){
+                console.log("Call Demo service")
+                service(payload);
+                channel.ack(msg)
+            }
+            // service(msg.content.toString());
+            // console.log(msg)
         })
 
     }catch(error){
@@ -33,7 +41,7 @@ const subsribeMessage =async (channel,service, binding_key)=>{
 
 const publishMessage= async(channel,binding_key,message)=>{
     try{
-        await channel.assertQueue(QUEUE_NAME);
+        await channel.assertQueue('REMINDER_QUEUE');
         await channel.publish(EXCHANGE_NAME,binding_key,Buffer.from(message));
 
     }catch(error){
